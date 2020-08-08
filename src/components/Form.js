@@ -9,7 +9,7 @@ const Form = () => {
   });
 
   const { cat } = useContext(CatContext);
-  const { setSearchc } = useContext(RecContext);
+  const { setSearchc, setConsult } = useContext(RecContext);
 
   const onChange = (e) => {
     setSearch({
@@ -24,6 +24,7 @@ const Form = () => {
       onSubmit={(e) => {
         e.preventDefault();
         setSearchc(search);
+        setConsult(true);
       }}
     >
       <fieldset className="text-center">
