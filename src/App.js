@@ -5,18 +5,21 @@ import RecipeList from "./components/RecipeList";
 
 import CatProvider from "./context/CatContext";
 import RecProvider from "./context/RecContext";
+import ModalProvider from "./context/ModalContext";
 
 function App() {
   return (
     <CatProvider>
       <RecProvider>
-        <Header />
-        <div className="container mt-5">
-          <div className="row">
-            <Form />
+        <ModalProvider>
+          <Header />
+          <div className="container mt-5">
+            <div className="row">
+              <Form />
+            </div>
+            <RecipeList />
           </div>
-          <RecipeList />
-        </div>
+        </ModalProvider>
       </RecProvider>
     </CatProvider>
   );
