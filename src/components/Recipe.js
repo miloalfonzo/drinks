@@ -36,7 +36,7 @@ const Recipe = ({ recipes }) => {
     setOpen(false);
   };
 
-  const { setIdrecipe } = useContext(ModalContext);
+  const { recipeinfo, setIdrecipe, setRecipe } = useContext(ModalContext);
   return (
     <div>
       <div className="col-md-4 mb-3">
@@ -62,11 +62,18 @@ const Recipe = ({ recipes }) => {
               open={open}
               onClose={() => {
                 handleClose();
+                setRecipe();
                 setIdrecipe(null);
               }}
             >
               <div style={modalStyle} className={classes.paper}>
-                <h1>Desde modal</h1>
+                <h1>{recipeinfo.strDrink}</h1>
+                <h3 className="mt-4">Instrucciones</h3>
+                <p>{recipeinfo.strInstructions}</p>
+                <img
+                  className="img-fluid my-4"
+                  src={recipeinfo.strDrinkThumb}
+                />
               </div>
             </Modal>
           </div>
